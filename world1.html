@@ -534,8 +534,8 @@
             console.log ("skin1");
             player1.command = "skin1";
           } else if (e.key == "2") {
-            console.log("skin2");
-            player1.command = "skin2";
+            console.log("rich");
+            player2.command = "rich";
           } else if (e.key == "0") {
             console.log("Aurum");
             player1.command = "Aurum";
@@ -595,7 +595,7 @@
             player.element.className = 'defeated';
             player.state = "defeated"
             window.setTimeout(function () {
-               if (player == player1 || player2){
+               if (player == player1 || player == player2){
                 player.element.className = 'solid player';
                 player.state = "normal";
                 player.hp = 150;
