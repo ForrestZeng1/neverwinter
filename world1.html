@@ -219,21 +219,40 @@
             } else if (this.command == "Aurum") {
               this.element.src = "final-aurum-skin-pixilart.png";
             } else if (this.command == "attack" && this.state != "attacking") {
-              this.element.src = "aurum-pixilart.png";
-              window.setTimeout(function () { player1.element.src = "aurum-pixilart.png";  }, 200);
-              window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 300);
-              window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 500);
-              window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; player1.state = "normal"; }, 600);
-              let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
-              if (this.facing == -1) {
-                victim_el = collision(this.x - 10, this.y + this.height/2, this, "enemy", 5 ,5);
+              if (player == player1) {
+                this.element.src = "aurum-pixilart.png";
+                window.setTimeout(function () { player1.element.src = "aurum-pixilart.png";  }, 200);
+                window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 300);
+                window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 500);
+                window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; player1.state = "normal"; }, 600);
+                let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
+                if (this.facing == -1) {
+                  victim_el = collision(this.x - 10, this.y + this.height/2, this, "enemy", 5 ,5);
+                }
+                if (victim_el) { 
+                  let victim = victim_el.sprite;
+                  victim.hp -= this.damage;
+                  victim.dx += this.knockback * this.facing;
+                }
+                this.state = "attacking";
               }
-              if (victim_el) { 
-                let victim = victim_el.sprite;
-                victim.hp -= this.damage;
-                victim.dx += this.knockback * this.facing;
+              if (player == player2) {
+                this.element.src = "coolkid.png";
+                window.setTimeout(function () { player1.element.src = "coolkid.png";  }, 200);
+                window.setTimeout(function () { player1.element.src = "coolkid.png"; }, 300);
+                window.setTimeout(function () { player1.element.src = "coolkid.png"; }, 500);
+                window.setTimeout(function () { player1.element.src = "coolkid.png"; player1.state = "normal"; }, 600);
+                let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
+                if (this.facing == -1) {
+                  victim_el = collision(this.x - 10, this.y + this.height/2, this, "enemy", 5 ,5);
+                }
+                if (victim_el) { 
+                  let victim = victim_el.sprite;
+                  victim.hp -= this.damage;
+                  victim.dx += this.knockback * this.facing;
+                }
+                this.state = "attacking";
               }
-              this.state = "attacking";
             } else if (this.command == "wait") {
               // Do nothing, and don't log it as an unknown command.
             } else if (this.command == "rich") {
@@ -720,7 +739,7 @@
                 }, 6000);
             }
           }
-          if (player1.gold || player2.gold >= 10 && levelNum == 1) {
+          if (player1.gold >= 10 || player2.gold >= 10 && levelNum == 1) {
               let door = document.querySelector(".door");
               door.style.display = "";
           }
@@ -730,7 +749,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 25 && levelNum == 2) {
+          if (player1.gold >= 10 || player2.gold >= 25 && levelNum == 2) {
             let door = document.querySelector(".door");
             door.style.display = "";
           }
@@ -740,7 +759,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 40 && levelNum == 3) {
+          if (player1.gold >= 10 || player2.gold >= 40 && levelNum == 3) {
             let door = document.querySelector(".door");
             door.style.display = "";
           }
@@ -750,7 +769,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 60 && levelNum == 4) {
+          if (player1.gold >= 10 || player2.gold >= 60 && levelNum == 4) {
             let door = document.querySelector(".door");
             door.style.display = "";
           }
@@ -760,7 +779,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 80 && levelNum == 5) {
+          if (player1.gold >= 10 || player2.gold >= 80 && levelNum == 5) {
             let door = document.querySelector(".door");
             door.style.display = "";
           }
@@ -770,7 +789,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 90 && levelNum == 6) {
+          if (player1.gold >= 10 || player2.gold >= 90 && levelNum == 6) {
               let door = document.querySelector(".door");
               door.style.display = "";
           }
@@ -780,7 +799,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold || player2.gold >= 100 && levelNum == 7) {
+          if (player1.gold >= 10 || player2.gold >= 100 && levelNum == 7) {
               let door = document.querySelector(".door");
               door.style.display = "";
           }
