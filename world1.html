@@ -498,6 +498,8 @@
           } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
             console.log("up");
             player2.command = "jump";
+          } else if (e.keyCode == DOWN_KEY)
+            player2.command = "attack";
           }
           if (e.key == "a") {
             console.log("a");
@@ -508,7 +510,7 @@
           } else if ((e.key == "w") && player1.dy > -1 && player1.dy < 1) {
             console.log("w");
             player1.command = "jump";
-          } else if (e.key == "k") {
+          } else if (e.key == "s") {
             console.log("attack");
             player1.command = "attack";
           } else if (e.key == "j") {
