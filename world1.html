@@ -219,13 +219,13 @@
             } else if (this.command == "Aurum") {
               this.element.src = "final-aurum-skin-pixilart.png";
             } else if (this.command == "attack" && this.state != "attacking") {
-                if (this.element.src = "aurum-pixilart.png") {
+                if (this == player1) {
                   window.setTimeout(function () { player1.element.src = "aurum-pixilart.png";  }, 200);
                   window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 300);
                   window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; }, 500);
                   window.setTimeout(function () { player1.element.src = "aurum-pixilart.png"; player1.state = "normal"; }, 600);
                 }
-                if (this.element.src = "coolkid.png") {
+                if (this == player2) {
                   window.setTimeout(function () { player2.element.src = "coolkid.png";  }, 200);
                   window.setTimeout(function () { player2.element.src = "coolkid.png"; }, 300);
                   window.setTimeout(function () { player2.element.src = "coolkid.png"; }, 500);
