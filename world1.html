@@ -107,7 +107,7 @@
             this.height = this.element.offsetHeight;
             this.dx = 0;
             this.dy = 0;
-            this.facing = -1;
+            this.facing = 1;
             this.ax = 0;
             this.ay = 0;
             this.state = "starting";
@@ -158,12 +158,12 @@
             if (this.command == "go left") {
               console.log("left");
               this.dx -= 1.25;
-              this.facing = 1;
+              this.facing = -1;
               this.element.style.transform = "scaleX(1)";
             } else if (this.command == "go right") {
               console.log("right");
               this.dx += 1.25;
-              this.facing = -1;
+              this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
             } else if (this.command == "jump" && this.dy > -1 && this.dy < 1) {
               console.log("up");
@@ -242,11 +242,11 @@
               this.hp += 1;
             } else if (this.command == "something") {
               this.dx += 100; 
-              this.facing = -1;
+              this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
             } else if (this.command == "gnihtemos") { 
               this.dx -= 100;
-              this.facing = 1;
+              this.facing = -1;
               this.element.style.transform = "scaleX(1)"
             } else if (this.command == "help") {
               this.hp += 10;
@@ -550,11 +550,11 @@
                                   
         document.addEventListener("keyup", function(e) {
           if (e.keyCode == LEFT_KEY) {
-            player1.command = "wait";
+            player2.command = "wait";
           } else if (e.keyCode == RIGHT_KEY) {
-            player1.command = "wait";
+            player2.command = "wait";
           } else if (e.keyCode == UP_KEY) {
-            player1.command = "wait";
+            player2.command = "wait";
           }
           if (e.key == "a") {
             player1.command = "wait";
